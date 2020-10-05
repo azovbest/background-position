@@ -1,1 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<title>Свойство background-position ускоряет загрузку страницы | один графический файл один запрос на сервер</title>
+<meta content="Страница используют свойство background-position изображений ускоряем загрузку страницы" 
+name="description">
+<meta content="Юрий Назаров" name="author">
+<meta content="Oct. 5, 2020" name="date">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="True" name="HandheldFriendly">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta content="index,follow" name="googlebot">
+<meta content="index,follow" name="yandex">
+<meta content="#FFFFFF" name="theme-color">
+<style>
+*{box-sizing:border-box}body{margin:1rem;font-family:Arial,Helvetica,sans-serif;font-size:100%;background:#ffc}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));grid-gap:.5rem}article{display:flex;flex-flow:column;background:#cc9;padding:.3rem;border-radius:9px}h1{margin:1em 0 0;line-height:1.2;font-weight:400;color:#000}p{margin:.6em 0 2rem;color:#000}img{order:-1;align-self:center;width:100%}.movie-1{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp);background-position:0 0}.movie-2{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp);background-position:25% 0}.movie-3{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp);background-position:top center}.movie-4{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp);background-position:-1150px 0}.movie-5{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:-1530px 0}.movie-6{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:bottom left}.movie-7{display:block;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:-385px -655px}.movie-8{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:50% bottom}.movie-9{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:-1151px -655px}.movie-10{display:block;-moz-box-sizing:border-box;box-sizing:border-box;height:545px;width:100%;padding-top:.5rem;overflow:hidden;background-repeat:no-repeat;background:#333 url(movi.webp) no-repeat;background-position:-1530px -655px}a{display:block;text-align:center;margin-top:auto;background:#fff;color:#000;text-transform:uppercase;letter-spacing:1px;padding:.4rem 0 .3rem;border-radius:5px}.footer{background:#996;width:100%;min-height:350px;display:flex;justify-content:center;align-items:flex-start;border-radius:9px}div.footer-container{width:100%;min-height:320px;display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;color:#000}.card{width:320px;margin:10px;border-radius:5px;border:1px solid #ffc;padding:1em;text-align:left}.movie_menu{width:100%;background:#fff;text-align:center;height:45px;position:relative;z-index:100}.movie_menu>span{display:none}.movie_menu input{position:absolute;display:none}.movie_menu label{display:none}.movie_menu ul{margin:0;padding:0;list-style:none;white-space:nowrap;text-align:left}.movie_menu ul{display:inline-block}.movie_menu li{margin:0;padding:0;list-style:none}.movie_menu li{display:inline-block;display:inline}.movie_menu ul ul{position:absolute;left:-9999px;border-left:1px solid #ddd;border-right:1px solid #ddd}.movie_menu>ul{margin:0 auto}.movie_menu>ul>li{float:left;display:block;position:relative}.movie_menu ul ul li a{border-top:1px solid #ddd}.movie_menu ul li b{display:block;width:100%;height:45px;background:0 0;position:relative;z-index:10;-webkit-transition:0s .5s;transition:0s .5s}.movie_menu ul ul li b{margin-top:-45px}.movie_menu ul{background:#fff}.movie_menu a{display:block;font:normal 14px "PT Sans",arial,sans-serif;color:#000;line-height:45px;text-decoration:none;padding:0 30px 0 10px}.movie_menu>ul>li>a{float:left;text-transform:uppercase}.movie_menu ul li:hover>ul{visibility:visible;left:-1px;top:45px;opacity:1}.movie_menu ul ul li:hover>ul{visibility:visible;left:100%;top:auto;margin-top:-46px}.movie_menu li.left:hover>ul{visibility:visible;left:auto;right:-1px;top:45px}.movie_menu li.left ul li:hover>ul{visibility:visible;left:auto;right:100%;top:auto;margin-top:-46px}.movie_menu ul li:hover>b{width:0}.movie_menu li.left ul a{text-align:right;padding:0 10px 0 30px}.movie_menu li.left ul li:hover>a,.movie_menu li:hover>a{background-color:#cc9;text-decoration:underline}.backimage{display:block;width:100%;height:500px;background:url(movie.webp) no-repeat center center;background-size:cover}@media only screen and (max-width:768px){.movie_menu ul li b{display:none}.movie_menu{height:0;padding-top:45px;background:#6c6;position:relative}.movie_menu>label{display:block;width:36px;height:36px;background:#f03;border-radius:5px;position:absolute;right:10px;top:5px;cursor:pointer}.movie_menu>label:before{display:block;content:"";width:18px;height:2px;background:#000;position:absolute;left:50%;top:50%;margin-left:-9px;margin-top:-1px;-webkit-transition:.25s;transition:.25s}.movie_menu>label:after{display:block;content:"";width:2px;height:18px;background:#000;position:absolute;left:50%;top:50%;margin-left:-1px;margin-top:-9px;-webkit-transition:.25s;transition:.25s}.movie_menu>span{display:block;font:normal 14px "PT Sans",arial,sans-serif;color:#000;position:absolute;left:10px;top:15px}.movie_menu li{display:block}.movie_menu ul,.movie_menu ul ul{margin:0;display:block;position:static;max-height:0;overflow:hidden;-webkit-transition:.25s;transition:.25s}.movie_menu>ul>li.has-sub>a{background-image:none}.movie_menu ul ul>li.has-sub>a{background-image:none}.movie_menu ul li.left ul>li.has-sub>a{background-image:none}.movie_menu ul li{float:none;display:block;position:relative}.movie_menu ul li label{display:block;width:36px;height:36px;background:#f03;border-radius:5px;position:absolute;right:10px;top:5px;cursor:pointer}.movie_menu ul ul li label{margin-top:0}.movie_menu ul li label:before{display:block;content:"";width:18px;height:2px;background:#000;position:absolute;left:50%;top:50%;margin-left:-9px;margin-top:-1px;-webkit-transition:.25s;transition:.25s}.movie_menu ul li label:after{display:block;content:"";width:2px;height:18px;background:#000;position:absolute;left:50%;top:50%;margin-left:-1px;margin-top:-9px;-webkit-transition:.25s;transition:.25s}.movie_menu ul{background:#ffc;border:0}.movie_menu a{display:block;font:normal 14px arial,sans-serif;color:#000;line-height:45px;text-decoration:none;padding:0 20px 0 10px}.movie_menu ul li a{float:none;border-top:1px solid #cc9}.movie_menu ul ul li>ul{margin-top:0}.movie_menu li.left ul li>ul{margin-top:0}.movie_menu ul ul li:hover>ul{margin-top:0}.movie_menu li.left ul li:hover>ul{margin-top:0}.movie_menu li.left ul a{text-align:left;padding:0 20px 0 10px}.movie_menu li.left ul li:hover>a,.movie_menu li:hover>a{background-color:#cc9;text-decoration:none}.movie_menu input:checked~label:before{-webkit-transform:rotate(360deg);transform:rotate(360deg)}.movie_menu input:checked~label:after{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.movie_menu input:checked~ul{max-height:3000px}.movie_menu ul ul{border:0;margin:0 15px}}
+</style>
+</head>
+<body>
+
+<div class="movie_menu"><span>Фильмы</span><input id="sub0" type="checkbox"><label for="sub0"></label>
+			<ul>
+				<li><a href="#">Главная</a></li>
+				<li class="has-sub"><a href="#">Контакты</a><b aria-controls="p1" aria-haspopup="true"></b><input id="sub1" 
+type="checkbox"><label for="sub1"></label> 
+					<ul id="p1">
+						<li><a href="https://www.facebook.com/Yurnaz">facebook</a></li>
+						<li><a href="https://ok.ru/kvadrokopter">ok</a></li>
+						<li><a href="https://vk.com/yurnaz">vk</a></li>
+						<li><a href="license.html">Лицензия</a></li>
+					</ul>
+				</li>
+				<li class="has-sub"><a href="#">Жанры</a><b aria-controls="p2" aria-haspopup="true"></b><input id="sub2" 
+type="checkbox"><label for="sub2"></label>
+					<ul id="p2">
+						<li><a href="#">Мелодрамы</a></li>
+						<li class="has-sub"><a href="#">Боевик</a><b aria-controls="p3" aria-haspopup="true"></b><input id="sub3" 
+type="checkbox"><label for="sub3"></label>
+							<ul id="p3">
+								<li><a href="#">Отечественный боевик</a></li>
+								<li><a href="#">Бадди-муви</a></li>
+								<li class="has-sub"><a href="#">Фильм биография</a><b aria-controls="p4" aria-haspopup="true"></b><input 
+id="sub4" type="checkbox"><label for="sub4"></label>
+									<ul id="p4">
+										<li><a href="#">Драма</a></li>
+										<li><a href="#">Комедия</a></li>
+										<li><a href="#">Экшн</a></li>
+										<li><a href="#">Социальное</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Expert</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Вигиланты</a></li>
+						<li class="has-sub"><a href="#">Фантастика</a><b aria-controls="p5" aria-haspopup="true"></b><input id="sub5" 
+type="checkbox"><label for="sub5"></label>
+							<ul id="p5">
+								<li><a href="#">Антиутопия</a></li>
+								<li><a href="#">Апокалиптические</a></li>
+								<li><a href="#">Киберпанк</a></li>
+								<li><a href="#">Космооперы</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">Исторические</a><b aria-controls="p6" aria-haspopup="true"></b><input id="sub6" 
+type="checkbox"><label for="sub6"></label>
+							<ul id="p6">
+								<li><a href="#">Военные</a></li>
+								<li><a href="#">Дзидайгэки</a></li>
+								<li><a href="#">Пеплумы</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="has-sub"><a href="#">Фильмы ужасов</a><b aria-controls="p7" aria-haspopup="true"></b><input id="sub7" 
+type="checkbox"><label for="sub7"></label>
+					<ul id="p7">
+						<li><a href="#">Фильмы по годам</a></li>
+						<li><a href="#">По стилистике</a></li>
+						<li><a href="#">Странам</a></li>
+						<li><a href="#">Тематике</a></li>
+					</ul>
+				</li>
+				<li class="has-sub left"><a href="#" class="has-sub">Страны</a><b aria-controls="p8" aria-haspopup="true"></b><input
+ id="sub8" type="checkbox"><label for="sub8"></label>
+					<ul id="p8">
+						<li><a href="#">Фильмы Украины</a></li>
+						<li class="has-sub"><a href="#">Российская империя</a><b aria-controls="p9" aria-haspopup="true"></b><input 
+id="sub9" type="checkbox"><label for="sub9"></label>
+							<ul id="p9">
+								<li><a href="#">Фильмы биографии</a></li>
+								<li><a href="#">Драмы</a></li>
+								<li class="has-sub"><a href="#">Исторические</a><b aria-controls="p10" aria-haspopup="true"></b><input 
+id="sub10" type="checkbox"><label for="sub10"></label>
+									<ul id="p10">
+										<li><a href="#">Пётр Великий 1910</a></li>
+										<li><a href="#">Мазепа 1914</a></li>
+										<li><a href="#">Мазепа 1909</a></li>
+										<li><a href="#">1812 год</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Кинокомедии</a></li>
+								<li><a href="#">Сказки</a></li>
+							</ul>
+						</li>
+						<li class="has-sub"><a href="#">ЮАР</a><b aria-controls="p11" aria-haspopup="true"></b><input id="sub11" 
+type="checkbox"><label for="sub11"></label>
+							<ul id="p11">
+								<li><a href="#">Исторические</a></li>
+								<li><a href="#">Детектив</a></li>
+								<li><a href="#">Боевики</a></li>
+								<li><a href="#">Ужасы</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Фильмы Ирана</a></li>
+					</ul>
+				</li>
+				<li><a href="#">О спорте</a></li>
+			</ul>
+		</div>
+		<div class="backimage"></div>
+		<main>
+		  <article>
+		     <div class="movie-1"></div>
+		     <h1>ВЛАСТЕЛИН КОЛЕЦ</h1>
+		     <p>
+▪Приключенческая экранизация, фэнтези▪ Воплощение тёмной силы зла кольцо должно уничтожить хоббит Фродо, друзья, союзники.
+</p>
+		     <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		    <div class="movie-2"></div>
+		    <h1>ПЕРЕВОЗЧИК</h1>
+		    <p>▪Криминальный боевик, триллер▪<br>Курьер Френк Мартин придерживаясь чётких правил может доставить всё-везде.
+</p>
+		   <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		   <div class="movie-3"></div>
+		    <h1>ВИКИНГИ</h1>
+		    <p>▪Исторический-военный фильм, драма, боевик, приключения▪<br>
+Корабль викингов рушиться штормовой буре. Войны попадает на территорию врага. Приказано уничтожить выживших. Победить значит выжить установка викингов.
+</p>
+		    <a href="#" rel="noopener noreferrer" target="_blank" style="color:#000;text-decoration:none">Промо ролик</a> 
+		  </article>
+		  
+		  <article>
+		   <div class="movie-4"></div>
+		    <h1>ЛЮДИ ИКС</h1>
+		    <p>▪Приключения, семейное кино, боевик, научная фантастика, триллер▪<br>
+Близкое завтра. Продукт генетической мутации появляются сверх-люди новое звено цепи эволюции.</p>
+		   <a href="#" rel="noopener noreferrer" target="_blank" style="color:#000;text-decoration:none">Промо ролик</a> 
+		  </article>
+		
+		  <article>
+		  <div class="movie-5"></div>
+		    <h1>ИГРА ПРЕСТОЛОВ</h1>
+		    <p>▪Экранизация, приключения, фэнтези, драма▪<br>
+Семь кланов ведут непримиримую борьбу за верховную власть, Каждая из областей королевства желает получить корону Вестероса.
+<br></p>
+		     <a href="#" rel="noopener noreferrer" target="_blank" style="color:#000;text-decoration:none">Промо ролик</a> 
+		  </article>
+		  
+		  <article>
+		  <div class="movie-6"></div>
+		    <h1>Хищник</h1>
+		    <p>▪Боевик, триллер, фэнтези▪<br>
+Джунглях центральной америки коммандос выступают качестве охотничьих трофеев для внеземного существа.</p>
+		   <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		    <div class="movie-7"></div>
+		    <h1>Аватар</h1>
+		    <p>▪Научная фантастика, боевик▪️ <br>
+Герой фильма Джейк Салли выступает героем конфликтующих цивилизаций. Джейк бывший морской пехотинец стоит перед дилеммой выбора чести или воинского долга.
+</p>
+		    <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		    <div class="movie-8"></div>
+		    <h1>ЗВЁЗДНЫЕ ВОЙНЫ</h1>
+		    <p>▪Сага Скайуокеров▪️ Научная фантастика, приключения, боевик, фэнтези▪<br>
+Невероятные истории семьи Скайуокеров уникальные путешествия. Потрясающий финал фантастической саги.</p>
+		    <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		    <div class="movie-9"></div>
+		    <h1>Гарри Поттер</h1>
+		    <p>▪Приключения, семейное кино, фэнтези, экранизация, мистика▪<br>
+ Сирота Гарри принимает приглашение в школу Хогвард. Обнаруживается что Поттер сын выдающихся волшебников погибших от рук злого колдуна.
+</p>
+		    <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		  
+		  <article>
+		  <div class="movie-10"></div>
+		    <h1>ДРУГОЙ МИР</h1>
+		    <p>▪Боевик, фильм ужасов, фэнтези▪<br>Серия фильмов  боевиков,тёмных фэнтези о вампирах и оборотнях.</p>
+		   <a href="#" rel="noopener noreferrer" target="_blank">Промо ролик</a>
+		  </article>
+		
+		</main>
+		
+<div class="footer">
+  <div class="footer-container">
+    <div class="card">
+      <h3>▪ Андрей Тарковский</h3>
+      <p>Ни одно из искусств не может</p>
+      <p>запечатлеть время..</p>
+      <p>кроме кино.</p>
+      <p>По существу, что такое фильм?</p>
+      <p>Это мозаика из времени.</p>
+    </div>
+    <div class="card">
+      <h3>▪ Жан-Поль Бельмондо</h3>
+      <p>Больше не вернусь ни в кино, ни в</p>
+      <p>театр. Теперь мой главный проект-</p>
+      <p> ничего не делать и наслаждаться </p>
+      <p>жизнью ▪ Не хочу быть летающим </p>
+       <p>дедушкой французского кино ▪</p>
+    </div>
+    <div class="card">
+      <h3>▪ Чарльз Буковски</h3>
+      <p>Видеть на экране всякое дерьмо</p>
+      <p>стало столь привычным..</p>
+      <p>что люди перестали отдавать себе</p>
+      <p>отчет  в том, что.. </p>
+      <p>смотрят одно дерьмо.</p>
+    </div>
+    <div class="card">
+      <h3>▪ Жан-Люк Годар</h3>
+      <p>Кино-это детство искусства.</p>
+      <p>Без любви не бывает фильмов.</p>
+      <p>Кино-лишь средство коммуникации.</p>
+      <p>Всё, что нужно для фильма-это</p>
+      <p>пистолет и девушка.</p>
+    </div>
+    <div class="card">
+      <h3>▪ Алфред Хичкок</h3>
+      <p>Фильм-не кусок жизни, а кусок пирога.</p>
+      <p>Кино состоит из экрана и множества </p>
+      <p>кресел, которые нужно заполнить.</p>
+      <hr>
+      <p><a href="https://github.com/azovbest/background-position/blob/main/LICENSE" rel="noopener noreferrer" 
+target="_blank" style="color:#4f4d90;text-decoration:none"> 	Работает по лицензии Apache 2.0</a></p>
+      <hr>
+    </div>
+  </div>
+</div>
+
 
